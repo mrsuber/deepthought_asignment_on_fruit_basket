@@ -1,25 +1,3 @@
-// test database
-// let projectsDataBase = [
-//   {
-//     id:1,
-//     project_name:"project1",
-//     project_todo:["todo1","todo2","todo3"],
-//     project_comment:"this is good"
-//
-//   },
-//   {
-//     id:2,
-//     project_name:"project2",
-//     project_todo:["todo1"],
-//     project_comment:"this is good2"
-//   },
-//   {
-//     id:3,
-//     project_name:"project3",
-//     project_todo:["todo1","todo2"],
-//     project_comment:"this is good3"
-//   },
-// ]
 
 
 // constants
@@ -27,7 +5,7 @@ const body = document.querySelector('body');
 const head = document.createElement('header');
 const nav = document.createElement('nav');
 const rightSection = document.createElement('section');
-  const rightContainer = document.createElement('div')
+const rightContainer = document.createElement('div')
 const rightContainerTopic = document.createElement('div')
 const createTodoForm1 = document.createElement('div')
 const rightFrom= document.createElement('form')
@@ -35,13 +13,8 @@ const rightFormInput = document.createElement('input')
 const rightFormButton = document.createElement('button')
 const rightFormButtonI = document.createElement('i')
 const rightFormSectionDiv = document.createElement('div')
-
-
 const rightContainerUl = document.createElement('ul')
 const rightContainerLi = document.createElement('li')
-const rightContainerConclude= document.createElement('div')
-const rightContainerButton = document.createElement('button')
-
 
 //left
 const leftSection = document.createElement('section');
@@ -63,8 +36,7 @@ const leftFormOption3 = document.createElement('option')
 const leftContainerUlDiv = document.createElement('div')
 const leftContainerUl = document.createElement('ul');
 const leftContainerLi = document.createElement('li')
-const leftContainerConclude = document.createElement('div')
-const leftContainerButton = document.createElement('button')
+
 const LOCAL_STORAGE_LIST_KEY = 'task.projectsDataBase'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
 let projectsDataBase = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
@@ -92,8 +64,6 @@ rightFormSectionDiv.classList.add('select1')
 
 rightContainerUl.classList.add('rightContainerUl')
 rightContainerLi.classList.add('rightContainerLi')
-rightContainerConclude.classList.add('rightContainerConclude')
-rightContainerButton.classList.add('rightContainerButton')
 
 
 
@@ -125,8 +95,7 @@ leftFormOption3.innerText="Uncompleted"
 leftContainerUlDiv.classList.add('todo-container')
 leftContainerUl.classList.add('leftContainerUl')
 leftContainerLi.classList.add('leftContainerLi')
-leftContainerConclude.classList.add('leftContainerConclude')
-leftContainerButton.classList.add('leftContainerButton')
+
 
 
 
@@ -137,8 +106,6 @@ head.appendChild(nav);
 body.appendChild(rightSection)
 rightSection.appendChild(rightContainer)
 rightContainer.appendChild(rightContainerTopic)
-
-
 rightContainer.appendChild(createTodoForm1)
 createTodoForm1.appendChild(rightFrom)
 rightFrom.appendChild(rightFormInput)
@@ -146,12 +113,6 @@ rightFrom.appendChild(rightFormButton)
 rightFormButton.appendChild(rightFormButtonI)
 rightFrom.appendChild(rightFormSectionDiv)
 rightFormSectionDiv.appendChild(rightContainerUl)
-
-// rightContainer.appendChild(rightContainerUl)
-// rightContainerUl.appendChild(rightContainerLi)
-rightContainer.appendChild(rightContainerConclude)
-rightContainerConclude.appendChild(rightContainerButton);
-
 
 
 body.appendChild(leftSection)
@@ -168,8 +129,7 @@ leftForm.appendChild(leftFormSectionDiv)
 leftFormSectionDiv.appendChild(leftFormSection)
 leftContainer.appendChild(leftContainerUlDiv)
 leftContainerUlDiv.appendChild(leftContainerUl)
-leftContainer.appendChild(leftContainerConclude)
-leftContainerConclude.appendChild(leftContainerButton)
+
 
 
 //selectors
@@ -192,21 +152,6 @@ todoList.addEventListener('click',deleteCheck);
 
 const listDisplayContainer = document.querySelector('.leftSection')
 const listTitleElement = document.querySelector('.topic2')
-// notes
-// data-list-display-containger = .leftContainer
-// data-list-title = .topic2
-// i do not have the count yet
-// data-task = leftContainerUl
-// const listCountElement =
-// const taskContainer = document.querySelector('.leftContainerUl')
-
-// const filterOption = document.querySelector('.leftContainerLi');
-
-
-
-
-
-
 
 
 //funtions
@@ -347,13 +292,6 @@ function renderTasks(selectedList){
 
 }
 
-// function renderTaskCount(){
-//   const incompleteTasksCount = selectedList.project_todo.filter(project_todo => !task.complete).length
-//   const taskString = incompleteTasksCount ===1? "task" : "tasks"
-//   listDisplayContainer.innerHTML='<h5>'+incompleteTasksCount+' '+taskString+' remaining'
-// }
-
-
 function renderProjectItems(){
 
     clearElement(todoList1)
@@ -395,7 +333,6 @@ function renderProjectItems(){
   }
 }
 
-
 function mainProjectAddingItems(event){
   //prevent form form submit
   event.preventDefault();
@@ -408,11 +345,6 @@ function mainProjectAddingItems(event){
   projectsDataBase.push(list)
   saveAndLoadProjectItems()
 }
-
-
-mainProjectLoadingItems()
-
-
 
 
 function deleteCheckFromMainProject(event){
@@ -449,31 +381,4 @@ function deleteCheckFromMainProject(event){
   }
 
 }
-
-//
-//
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // mm
+mainProjectLoadingItems()
